@@ -1,5 +1,5 @@
 import {ErrorMessage, Field} from "formik";
-import TextError from "./FormComponents/TextError.tsx";
+import TextError from "./TextError.tsx";
 
 interface TextareaProps {
   label: string
@@ -9,9 +9,9 @@ interface TextareaProps {
 
 const Textarea = ({label, name, ...rest}: TextareaProps) => {
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <Field id={name} as="textarea" type="text" name={name} {...rest} />
+    <div className="flex flex-col space-y-2 mb-4">
+      <label htmlFor={name} className="font-bold text-sm text-gray-700">{label}</label>
+      <Field id={name} as="textarea" type="text" name={name} {...rest} className="border border-gray-400 p-2 rounded resize-y" />
       <ErrorMessage name={name} component={TextError} />
     </div>
   )
